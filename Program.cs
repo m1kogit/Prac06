@@ -10,7 +10,6 @@ foreach (ManagementObject item in searcher.Get())
     System.Console.WriteLine($"Логических процессоров: {item["NumberOfLogicalProcessors"]}");
 }  */
 
-using System.Drawing;
 using System.Management;
 
 var disksearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
