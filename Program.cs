@@ -10,7 +10,7 @@ foreach (ManagementObject item in searcher.Get())
     System.Console.WriteLine($"Логических процессоров: {item["NumberOfLogicalProcessors"]}");
 }  */
 
-using System.Management;
+/* using System.Management;
 
 var disksearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
 
@@ -20,6 +20,15 @@ foreach (ManagementObject disk in disksearcher.Get())
     System.Console.WriteLine($"Модель: {disk["Model"]}");
     long sizeBytes = Convert.ToInt64(disk["Size"]);
     System.Console.WriteLine($"Размер: {sizeBytes / 1024.0 / 1024 / 1024:F1} GB");
+} */
+
+using System.Management;
+
+var osSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem");
+
+
+foreach (ManagementObject os in osSearcher.Get())
+{
+    System.Console.WriteLine($"OS: {os["Caption"]}");
+    System.Console.WriteLine($"Version: {os["Version"]}");
 }
-
-
